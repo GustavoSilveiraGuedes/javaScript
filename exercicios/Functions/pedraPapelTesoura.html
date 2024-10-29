@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedra Papel Tesoura</title>
+</head>
+<body>
+    <p>Pedra Papel Tesoura</p>
+    <button onclick="Move('pedra')">Pedra</button>
+
+    <button onclick="Move('papel')">Papel</button>
+
+    <button onclick="Move('tesoura')">Tesoura</button>
+
+    <script>
+       function Move(move){
+            compMove = Aredondar(Math.random());
+
+            alert(`Você escolheu ${move}, o computador escolheu ${compMove}. ${Calculo(move, compMove)}`);
+
+
+            function Calculo(move, compMove){
+                if(move == compMove){
+                    return 'Empate!';
+                } else if(move == 'pedra'){
+                        if(compMove == 'papel'){
+                            return 'Você perdeu!';
+                        }else{
+                            return 'Você ganhou!';
+                        }
+                } else if(move == 'papel'){
+                        if(compMove == 'pedra'){
+                            return 'Você ganhou!';
+                        }else{
+                            return 'Você perdeu!';
+                        }
+                } else if(move == 'tesoura'){
+                        if(compMove == 'pedra'){
+                            return 'Você perdeu!';
+                        }else{
+                            return 'Você ganhou!';
+                        }
+                }
+            }
+
+            function Aredondar(num){
+                if(num < 1/3){
+                    return 'pedra';
+                } else if(num >= 1/3 && num < 2/3){
+                    return 'papel';
+                }else if(num >= 2/3){
+                    return 'tesoura';
+                }
+            }
+       }
+    </script>
+</body>
+</html>
